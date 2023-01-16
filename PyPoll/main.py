@@ -31,7 +31,6 @@ with open (election_data, "r", encoding="utf-8") as csvfile:
         candidates.append(row[2])
 
 
-
 print("Elections Results")
 
 print("----------------------------------------")
@@ -81,33 +80,28 @@ with open(output_file, 'w') as text_file:
     writer = csv.writer(text_file)
 
 
-print("Elections Results", file=text_file)
+    print("Elections Results", file=text_file)
 
-# print("----------------------------------------", file=text_file)
+    print("----------------------------------------", file=text_file)
 
-# print(f"Total votes: {(len(voters))}", file=text_file)
+    print(f"Total votes: {(len(voters))}", file=text_file)
 
-# print("----------------------------------------", file=text_file)
+    print("----------------------------------------", file=text_file)
 
-# print(f"Charles Casper Stockham: {(round(charles_percentage,3))} % ({votes_charles})", file=text_file)
-# print(f"Raymon Anthony Doane: {(round(raymon_percentage,3))} % ({votes_raymon})", file=text_file)
-# print(f"Diana DeGette: {(round(diana_percentage,3))} % ({votes_diana})", file=text_file)
+    print(f"Charles Casper Stockham: {(round(charles_percentage,3))} % ({votes_charles})", file=text_file)
+    print(f"Raymon Anthony Doane: {(round(raymon_percentage,3))} % ({votes_raymon})", file=text_file)
+    print(f"Diana DeGette: {(round(diana_percentage,3))} % ({votes_diana})", file=text_file)
 
-# print("----------------------------------------", file=text_file)
+    print("----------------------------------------", file=text_file)
 
-# # if votes_charles > votes_raymon and votes_charles > votes_diana:
-# #     print("Winner: Charles Casper Stockham", file=text_file)
-# # elif votes_raymon > votes_charles and votes_raymon > votes_diana:
-# #     print("Winner: Raymon Anthony Doane", file=text_file)
-# # else:
-# #     print("Winner: Diana DeGette", file=text_file)
+    if votes_charles > votes_raymon and votes_charles > votes_diana:
+        print("Winner: Charles Casper Stockham", file=text_file)
+    elif votes_raymon > votes_charles and votes_raymon > votes_diana:
+        print("Winner: Raymon Anthony Doane", file=text_file)
+    else:
+        print("Winner: Diana DeGette", file=text_file)
 
-# # print("----------------------------------------", file=text_file)
-
-
-
-
-
+    print("----------------------------------------", file=text_file)
 
 
 
