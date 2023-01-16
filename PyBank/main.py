@@ -103,6 +103,9 @@ with open(output_file, 'w') as text_file:
 
     print(f"Greatest decrease in Profits: {worst_month} (${(greatest_decrease)})", file=text_file)
 
-    
+
+
+
+
 
 
