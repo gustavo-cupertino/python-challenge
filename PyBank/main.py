@@ -43,120 +43,66 @@ with open (budget_data, "r", encoding="utf-8") as csvfile:
     for x in range(len(results) - 1):
         result_change.append(results[x+1] - results[x])
 
-    #print(result_change)
+
+
+print("Financial Analysis")
+
+print("----------------------------------------------------")
+
+
 
 
 # Total of months 
 
-    print(len(months))
+print(f"Total months: {len(months)}")
 
 # net total amount over period 
    
-    print(sum(results))
+print(f"Total amount of Profit/Losses: ${sum(results)}")
 
 # Changes in "profit / losses" over the period 
 
-    print(sum(result_change))
+total_changes = sum(result_change)
 
 # Average of changes in "profit / losses" over the period     
 
-    print((sum(result_change)) / (len(months)-1))
+average_change = (((sum(result_change))/(len(months)-1)))
+rounded_average = round(average_change,2)
+print(f"Average Change: ${rounded_average}")
 
 #     
 
-
-    print(min(result_change))
-    # print(result_change.index(min(result_change)))
-    print(months[(result_change.index(min(result_change)))+1])
-
+greatest_increase = (max(result_change))
+greatest_month = (months[(result_change.index(max(result_change)))+1])
+print(f"Greatest increase in Profits: {greatest_month} (${(greatest_increase)})")
 
 
-    print(max(result_change))
-    # print(result_change.index(max(result_change)))
-    print(months[(result_change.index(max(result_change)))+1])
+greatest_decrease = (min(result_change))
+worst_month = (months[(result_change.index(min(result_change)))+1])
+print(f"Greatest decrease in Profits: {worst_month} (${(greatest_decrease)})")
 
 
+output_file = os.path.join('..', 'Analysis', 'budget_analysis.csv')
 
 
-   
-   
-#     max_value = max(result_change)
-#     index_max = list.index(max_value)
-# print(index_max)
+with open(output_file, 'w') as text_file:
+    writer = csv.writer(text_file)
 
 
-    # max_value = max(result_change)
-    # index_max = list.index(max_value)
+    print("Financial Analysis" , file=text_file)
 
-    # print(index_max)
+    print("----------------------------------------------------", file=text_file)
 
+    print(f"Total months: {len(months)}", file=text_file)
 
+    print(f"Total amount of Profit/Losses: ${sum(results)}", file=text_file)
 
-#  max_val = max(list)
-# index_max = list.index(max_val)
+    print(f"Average Change: ${rounded_average}", file=text_file)
 
+    print(f"Greatest increase in Profits: {greatest_month} (${(greatest_increase)})", file=text_file)
 
-
-        # print(value)
-
-
-    # result_change = (sum(results[x:len(results)])) / (len(results))
-    # print(result_change)
-
-
-
-
-# x = results.co
-
-#     print(x)
-
-
-
-
-
-
-
-    # print(len(months))
-    # print(sum(results))
+    print(f"Greatest decrease in Profits: {worst_month} (${(greatest_decrease)})", file=text_file)
 
     
 
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-    # csv_header = next(csvreader)
-
-    # for months in csvreader:
-
-    #     months.append(months[0])
-    #     print(months)
-
-#         results.append(row[1])
-
-
-# print(months)
-
-
-
-
-
-
-    
-
-
-# define lists
