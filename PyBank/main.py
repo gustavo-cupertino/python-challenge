@@ -1,3 +1,5 @@
+# importing modules
+
 import os
 import csv
 
@@ -17,24 +19,22 @@ with open (budget_data, "r", encoding="utf-8") as csvfile:
     
     csvreader = csv.reader(csvfile,delimiter=",")
 
-    # print(csvreader)
+
+# store header
 
     csv_header = next (csvreader)
 
 
-    for row in csvreader:
-        # print(row)
+# printing values to lists
 
+    for row in csvreader:
 
         months.append(row[0])
         results.append(int(row[1]))
               
     
-    # print(results)
+# printing report to terminal
 
-
-    for x in range(len(results) - 1):
-        result_change.append(results[x+1] - results[x])
 
 print("Financial Analysis")
 
@@ -48,17 +48,20 @@ print(f"Total months: {len(months)}")
    
 print(f"Total amount of Profit/Losses: ${sum(results)}")
 
-# Changes in "profit / losses" over the period 
+# Finding the changes in "profit / losses" over the period 
+
+for x in range(len(results) - 1):
+    result_change.append(results[x+1] - results[x])
 
 total_changes = sum(result_change)
 
-# Average of changes in "profit / losses" over the period     
+# Printing the average of changes in "profit / losses" over the period     
 
-average_change = (((sum(result_change))/(len(months)-1)))
+average_change = (((total_changes)/(len(months)-1)))
 rounded_average = round(average_change,2)
 print(f"Average Change: ${rounded_average}")
 
-#     
+# Printing the greatest increase / decrease over the entire period
 
 greatest_increase = (max(result_change))
 greatest_month = (months[(result_change.index(max(result_change)))+1])
@@ -69,8 +72,9 @@ greatest_decrease = (min(result_change))
 worst_month = (months[(result_change.index(min(result_change)))+1])
 print(f"Greatest decrease in Profits: {worst_month} (${(greatest_decrease)})")
 
+# Exporting report to a text file 
 
-output_file = os.path.join('..', 'Analysis', 'budget_analysis.csv')
+output_file = os.path.join('..', 'Analysis', 'budget_analysis.txt')
 
 
 with open(output_file, 'w') as text_file:
@@ -90,10 +94,4 @@ with open(output_file, 'w') as text_file:
     print(f"Greatest increase in Profits: {greatest_month} (${(greatest_increase)})", file=text_file)
 
     print(f"Greatest decrease in Profits: {worst_month} (${(greatest_decrease)})", file=text_file)
-
-
-
-
-
-
 
