@@ -28,14 +28,7 @@ with open (budget_data, "r", encoding="utf-8") as csvfile:
 
         months.append(row[0])
         results.append(int(row[1]))
-       
- 
-
-
-        
-        # result_change = ((results[1]) - (results[0]))
-
-        #        result_change.append((results[1]) - (results[0]))
+              
     
     # print(results)
 
@@ -43,14 +36,9 @@ with open (budget_data, "r", encoding="utf-8") as csvfile:
     for x in range(len(results) - 1):
         result_change.append(results[x+1] - results[x])
 
-
-
 print("Financial Analysis")
 
 print("----------------------------------------------------")
-
-
-
 
 # Total of months 
 

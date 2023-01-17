@@ -1,6 +1,7 @@
+# import modules 
+
 import os
 import csv 
-
 
 # inform path to collect data from 
 
@@ -9,7 +10,6 @@ election_data = os.path.join ('..', 'Resources', 'election_data.csv')
 # define lists to store data
 
 voters = []
-county = []
 candidates = []
 unique_candidates = []
 
@@ -19,17 +19,18 @@ with open (election_data, "r", encoding="utf-8") as csvfile:
     
     csvreader = csv.reader(csvfile,delimiter=",")
 
-    # print(csvreader)
+# store header
 
     csv_header = next (csvreader)
 
+# print rows and add values to the lists 
 
     for row in csvreader:
-        # print(row)
 
         voters.append(row[0])
         candidates.append(row[2])
 
+# printing report to terminal
 
 print("Elections Results")
 
@@ -41,11 +42,14 @@ print(f"Total votes: {(len(voters))}")
 
 print("----------------------------------------")
 
-# find and print candidates list  
+# finding candidates list with unique values 
 
 unique_candidates.append(set(candidates))
-# print(unique_candidates)
+candidate_list = []
+candidate_list = list(unique_candidates)
+#print(candidate_list)
 
+# printing total of votes and percentage for each candidate 
 
 votes_charles = (candidates.count("Charles Casper Stockham"))
 charles_percentage = ((int(votes_charles) * 100)/ int(len(voters)))
@@ -63,6 +67,8 @@ print(f"Diana DeGette: {(round(diana_percentage,3))} % ({votes_diana})")
 
 print("----------------------------------------")
 
+# printing the election's winner
+
 if votes_charles > votes_raymon and votes_charles > votes_diana:
     print("Winner: Charles Casper Stockham")
 elif votes_raymon > votes_charles and votes_raymon > votes_diana:
@@ -73,7 +79,10 @@ else:
 print("----------------------------------------")
 
 
-output_file = os.path.join('..', 'Analysis', 'election_analysis.csv')
+# exporting report as a text file
+
+
+output_file = os.path.join('..', 'Analysis', 'election_analysis.txt')
 
 
 with open(output_file, 'w') as text_file:
@@ -102,22 +111,3 @@ with open(output_file, 'w') as text_file:
         print("Winner: Diana DeGette", file=text_file)
 
     print("----------------------------------------", file=text_file)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
